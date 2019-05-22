@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+android {
+    compileSdkVersion 28
+
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.example.myaar01"
+        minSdkVersion 27
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
+}
+
+
+sceneform.asset('sampledata/models/horse.fbx',
+        'default',
+        'sampledata/models/horse.sfa',
+        'src/main/res/raw/horse')
+
+sceneform.asset('sampledata/models/model.fbx',
+        'default',
+        'sampledata/models/model.sfa',
+        'src/main/res/raw/model')
+
+sceneform.asset('sampledata/models/fauteuill1.fbx',
+        'default',
+        'sampledata/models/fauteuill1.sfa',
+        'src/main/res/raw/fauteuill1')
+
+sceneform.asset('sampledata/models/chic196.obj',
+        'default',
+        'sampledata/models/chic196.sfa',
+        'src/main/res/raw/chic196')
